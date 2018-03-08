@@ -1,0 +1,12 @@
+<div class="video-ui">
+  <a href="#" v-on="click: onVideoAddClicked" class="btn">
+    <i class="btn__icon fa fa-video-camera"></i>
+    <span class="btn__title">add video</span>
+  </a>
+	<input
+		id="fileInput"
+		type="file"
+		accept=".mp4, .ogg, .qt"
+		style="display:none"
+		v-on="change: onFileChanged, click: onFileClicked"/>
+</div>

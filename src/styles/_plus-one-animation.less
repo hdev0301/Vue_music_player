@@ -1,0 +1,22 @@
+.plus-one-animation {
+  display: block;
+  position: absolute;
+  left: 60%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: bold;
+
+  visibility: hidden;
+}
+
+.plus-one-animation--active {
+  @duration: 0.8s;
+  transition: top @duration ease-out 0s, opacity @duration ease-out 0s;
+  top: -70%;
+  opacity: 0;
+  visibility: visible;
+}

@@ -1,0 +1,19 @@
+@import "_mixins";
+
+.mini-player {
+  #clearfix();
+
+  display: inline-block;
+  list-style: none;
+  padding-left: 0;
+  vertical-align: middle;
+}
+
+.mini-player__btn {
+  display: block;
+  float: left;
+
+  & + & {
+    margin-left: 10px;
+  }
+}

@@ -1,0 +1,80 @@
+<ul class="control-panel">
+  <li>
+    <!-- prev track btn -->
+    <a href="#" class="icon-btn icon-btn--big" v-on="click: prevTrack">
+      <span class="btn__icon">
+          <i class="fa fa-backward"></i>
+        </span>
+      <span class="btn__title">prev</span>
+    </a>
+    <!-- end of prev track btn -->
+  </li>
+  <li>
+    <!-- pause btn -->
+    <a v-if="isPlaying" href="#" class="icon-btn icon-btn--big" v-on="click: pause">
+      <span class="btn__icon">
+        <i class="fa fa-pause"></i>
+      </span>
+      <span class="btn__title">pause</span>
+    </a>
+    <!-- end of pause btn -->
+
+    <!-- play btn -->
+    <a v-if="!isPlaying" href="#" class="icon-btn icon-btn--big" v-on="click: play">
+      <span class="btn__icon">
+        <i class="fa fa-play"></i>
+      </span>
+      <span class="btn__title">play</span>
+    </a>
+    <!-- end of play btn -->
+  </li>
+  <li>
+    <!-- next track btn -->
+    <a href="#" class="icon-btn icon-btn--big" v-on="click: nextTrack">
+      <span class="btn__icon">
+        <i class="fa fa-forward"></i>
+      </span>
+      <span class="btn__title">next</span>
+    </a>
+    <!-- end of next track btn -->
+  </li>
+  <li class="hide-for-free hide-for-download">
+    <!-- add to cart btn -->
+    <a v-if="!inCart" href="#" class="icon-btn icon-btn--big icon-btn--add" v-on="click: addToCart">
+      <span class="btn__icon">
+        <i class="fa fa-plus"></i>
+      </span>
+      <span class="btn__title">add to card</span>
+    </a>
+    <!-- end of add to cart btn -->
+
+    <!-- remove from cart btn -->
+    <a v-if="inCart" href="#" class="icon-btn icon-btn--big icon-btn--del" v-on="click: delFromCart">
+      <span class="btn__icon">
+        <i class="fa fa-times"></i>
+      </span>
+      <span class="btn__title">remove</span>
+    </a>
+    <!-- end of remove from cart btn -->
+  </li>
+  <li>
+    <!-- add to favorite tracks btn -->
+    <a href="#" class="icon-btn icon-btn--big icon-btn--fav" v-on="click: addToFavs">
+      <span class="btn__icon" data-role="favs-btn">
+        <i class="fa fa-star"></i>
+      </span>
+      <span class="btn__title">favorites</span>
+    </a>
+    <!-- end of add to favorite tracks btn -->
+  </li>
+  <li>
+    <!-- longo loops btn -->
+    <a v-attr="href: track | longoloops-href" class="icon-btn icon-btn--big icon-btn--loops">
+      <span class="btn__icon">
+        <i class="fa fa-circle-o"></i>
+      </span>
+      <span class="btn__title">longoloops</span>
+    </a>
+    <!-- end of longo loops btn -->
+  </li>
+</ul>

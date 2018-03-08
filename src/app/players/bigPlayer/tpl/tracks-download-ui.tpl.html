@@ -1,0 +1,36 @@
+<div class="tracks-download-ui">
+  	<ul class="download-control-panel">
+  		<li>
+			<a v-if="!isEmpty" v-attr="href: track | download-url" target="_blank" class="icon-btn icon-btn--big" v-on="click: onTypeSelected('License')">
+				<span class="btn__icon">
+					<i class="fa fa-play"></i>
+				</span>
+			    <span class="btn__title">License</span>
+			</a>
+  		</li>
+  		<li>
+			<a v-if="!isEmpty" v-attr="href: track | download-url" target="_blank" class="icon-btn icon-btn--big" v-on="click: onTypeSelected('AIFF')">
+				<span class="btn__icon">
+					<i class="fa fa-play"></i>
+				</span>
+			    <span class="btn__title">AIFF</span>
+			</a>
+  		</li>
+  		<li>
+			<a v-if="!isEmpty" v-attr="href: track | download-url" target="_blank" class="icon-btn icon-btn--big" v-on="click: onTypeSelected('WAV')">
+				<span class="btn__icon">
+					<i class="fa fa-play"></i>
+				</span>
+			    <span class="btn__title">WAV</span>
+			</a>
+  		</li>
+  		<li>
+			<a v-if="!isEmpty" v-attr="href: track | download-url" target="_blank" class="icon-btn icon-btn--big" v-on="click: onTypeSelected('MP3')">
+				<span class="btn__icon">
+					<i class="fa fa-play"></i>
+				</span>
+			    <span class="btn__title">MP3</span>
+			</a>
+  		</li>
+  	</ul>
+</div>

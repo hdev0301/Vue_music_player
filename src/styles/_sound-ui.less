@@ -1,0 +1,74 @@
+@import "_mixins";
+
+.sound-ui {
+}
+
+.sound-ui__inner {
+  #clearfix();
+}
+
+.sound-ui__mute-btn,
+.sound-ui__volume {
+  float: left;
+}
+
+.sound-ui__volume {
+  position: relative;
+
+  display: block;
+  width: 50px;
+  height: 24px;
+
+  margin-left: 4px;
+}
+
+.sound-ui__dots-mask {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  overflow: hidden;
+}
+
+.sound-ui__dots {
+  #clearfix();
+
+  display: block;
+  width: 50px;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sound-ui__dot {
+  float: left;
+
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+
+  position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
+
+  margin: 0 1px;
+
+  background: #d2dce3;
+}
+
+.sound-ui__dots--active {
+  > .sound-ui__dot {
+    background: #4fa3d8;
+  }
+}

@@ -1,0 +1,104 @@
+@import "_mixins";
+
+@player-height: 306px;
+@player-padding: 10px;
+@player-bg-color: #104869;
+@player-border-radius: 8px;
+
+.player-body {
+  #clearfix();
+
+  display: block;
+  position: relative;
+
+  box-sizing: border-box;
+
+  width: 100%;
+  height: @player-height;
+
+  padding: @player-padding;
+
+  border-radius: @player-border-radius;
+}
+
+.player-section {
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+
+  float: left;
+  width: 100% / 3;
+  height: 100%;
+
+  &:nth-child(1) {
+    padding-right: 10px;
+  }
+
+  &:nth-child(2) {
+    // in order to control panel will be over next section
+    z-index: 1;
+    padding-top: 20px;
+  }
+
+  &:nth-child(3) {
+    padding-left: 10px;
+  }
+}
+
+.video-overlay-section {
+  position: absolute;
+  right: 0;
+  z-index: 9999;
+}
+
+.player-body--ready {
+  background-color: @player-bg-color;
+}
+
+.player-body--error,
+.player-body--loading {
+  background-color: #ffffff;
+  border: 1px solid #e4e4e4;
+}
+
+.player-body--loading {
+  > .preloader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.player-body--error {
+  > .error-msg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.player-body--free-playlist {
+  background-color: #333366;
+
+  .control-panel {
+    > li {
+      &.hide-for-free {
+        display: none;
+      }
+    }
+  }
+}
+
+.player-body--tracks-download {
+  background-color: #333366;
+
+  .control-panel {
+    > li {
+      &.hide-for-download {
+        display: none;
+      }
+    }
+  }
+}

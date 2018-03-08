@@ -1,0 +1,431 @@
+@import "_mixins";
+
+// --------------------------
+// mixins
+// --------------------------
+.for-all-states(@rules) {
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    @rules();
+  }
+}
+
+.base-btn() {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  box-sizing: border-box;
+
+  .for-all-states({ text-decoration: none; });
+  outline: none;
+}
+
+.icon-btn-bg-color(@color, @hover-color) {
+  &:before {
+    background-color: @color;
+  }
+
+  &:hover {
+    &:before {
+      background-color: @hover-color;
+    }
+  }
+}
+
+.bg-color-transition() {
+  transition: background-color 0.3s ease 0s;
+}
+
+.text-color-transition() {
+  transition: color 0.3s ease 0s;
+}
+
+// --------------------------
+// base
+// --------------------------
+.btn,
+.icon-btn,
+.link-btn {
+  .base-btn();
+}
+
+.btn {
+  padding: 0 8px;
+
+  .btn__title {
+    vertical-align: top;
+    line-height: inherit;
+  }
+
+  .btn__icon {
+    vertical-align: top;
+    line-height: inherit;
+  }
+}
+
+.icon-btn {
+  text-align: center;
+
+  // background
+  &:before {
+    .bg-color-transition();
+    content: "";
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+
+  .btn__title {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    min-width: 100%;
+
+    color: #698ca0;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .btn__icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: center;
+    font-size: 0;
+
+    .fa {
+      position: relative;
+      vertical-align: middle;
+      line-height: inherit;
+    }
+  }
+}
+
+.btn__title {
+  display: inline-block;
+  position: relative;
+}
+
+// --------------------------
+// colors
+// --------------------------
+@btn-bg-color: #0066cc;
+@btn-bg-color-hover: #008bff;
+
+@add-bg-color: #009900;
+@add-bg-color-hover: #00d100;
+
+@del-bg-color: #cc0033;
+@del-bg-color-hover: #cc0033;
+
+@fav-bg-color: #9a3467;
+@fav-bg-color-hover: #d2478d;
+
+@loops-bg-color: #ff6666;
+@loops-bg-color-hover: #ff8b8b;
+
+.btn {
+  .for-all-states({ color: #ffffff; });
+  .bg-color-transition();
+
+  background-color: @btn-bg-color;
+  &:hover {
+    background-color: @btn-bg-color-hover;
+  }
+}
+
+.icon-btn {
+  .icon-btn-bg-color(@btn-bg-color, @btn-bg-color-hover);
+
+  .btn__icon {
+    color: #ffffff;
+  }
+}
+
+.icon-btn--add {
+  .icon-btn-bg-color(@add-bg-color, @add-bg-color-hover);
+}
+
+.icon-btn--del {
+  .icon-btn-bg-color(@del-bg-color, @del-bg-color-hover);
+}
+
+.icon-btn--fav {
+  .icon-btn-bg-color(@fav-bg-color, @fav-bg-color-hover);
+}
+
+.icon-btn--loops {
+  .icon-btn-bg-color(@loops-bg-color, @loops-bg-color-hover);
+}
+
+// --------------------------
+// sizes
+// --------------------------
+@size-default: 24px;
+@size-big: 42px;
+
+@border-radius-default: 5px;
+@border-radius-big: 8px;
+
+// default
+.btn {
+  border-radius: @border-radius-default;
+  height: @size-default;
+  line-height: @size-default;
+
+  .icon {
+    font-size: 16px;
+    line-height: @size-default - 4px;
+  }
+
+  .btn__title {
+    font-size: 14px;
+  }
+
+  .btn__icon + .btn__title {
+    margin-left: 4px;
+  }
+}
+
+.icon-btn {
+  width: @size-default;
+
+  &:before {
+    height: @size-default;
+    border-radius: @border-radius-default;
+  }
+
+  .btn__icon {
+    width: @size-default;
+    height: @size-default;
+    line-height: @size-default;
+
+    .fa {
+      font-size: 18px;
+    }
+  }
+}
+
+// big
+.btn--big {
+  border-radius: @border-radius-big;
+
+  .icon {
+    font-size: 16px;
+    line-height: @size-big - 4px;
+  }
+
+  .btn__title {
+    font-size: 14px;
+  }
+
+  .icon + .btn__title {
+    margin-left: 4px;
+  }
+}
+
+.icon-btn--big {
+  width: @size-big;
+
+  &:before {
+    height: @size-big;
+    border-radius: @border-radius-big;
+  }
+
+  .btn__icon {
+    width: @size-big;
+    height: @size-big;
+    line-height: @size-big;
+
+    .fa {
+      font-size: 30px;
+    }
+  }
+}
+
+// --------------------------
+// link buttons
+// --------------------------
+.link-btn {
+  #clearfix();
+  .bg-color-transition();
+
+  position: relative;
+  box-sizing: border-box;
+
+  height: 39px;
+  line-height: 39px;
+
+  padding: 0 15px;
+
+  border-radius: @border-radius-default;
+  border: 1px solid #000000;
+
+  text-transform: capitalize;
+
+  .btn__title {
+    vertical-align: top;
+    line-height: inherit;
+  }
+
+  .btn__icon {
+    .text-color-transition();
+    float: right;
+    margin-left: 10px;
+    font-size: 0;
+
+    .fa {
+      vertical-align: top;
+      line-height: inherit;
+      font-size: 18px;
+    }
+  }
+}
+
+.link-btn--full-width {
+  width: 100%;
+
+  & + & {
+    margin-top: 5px;
+  }
+}
+
+.link-btn--track-author,
+.link-btn--track-title {
+  .btn__title {
+    max-width: 90%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .link-btn__link {
+    display: block;
+    height: 100%;
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    top: 0;
+  }
+}
+
+.link-btn--track-author {
+  .for-all-states({ color: #edc209; });
+
+  border-color: rgba(255, 204, 0, 0.2);
+
+  font-size: 18px;
+
+  &:hover {
+    background-color: rgba(255, 204, 0, 0.09);
+
+    .btn__icon {
+      color: rgba(255, 204, 0, 0.8);
+    }
+  }
+
+  .btn__icon {
+    color: rgba(255, 204, 0, 0.09);
+  }
+}
+
+.link-btn--track-title {
+  .for-all-states({ color: #ffffff; });
+
+  border-color: rgba(255, 255, 255, 0.2);
+
+  font-size: 24px;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.09);
+
+    .btn__icon {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  .btn__icon {
+    color: rgba(255, 255, 255, 0.09);
+  }
+}
+
+.link-btn--checkout {
+  .for-all-states({ color: #ffffff; });
+
+  text-transform: uppercase;
+
+  background-color: #009900;
+  border-color: #009900;
+
+  border-radius: @border-radius-big;
+}
+
+.link-btn--add-to-my-music {
+  .for-all-states({ color: #ffffff; });
+
+  text-transform: uppercase;
+
+  background-color: #ff3366;
+  border-color: #ff3366;
+
+  border-radius: @border-radius-big;
+
+  > .btn__title {
+    text-align: left;
+    line-height: 20px;
+    font-weight: bold;
+    padding-right: 24px;
+
+    small {
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 16px;
+      display: block;
+    }
+  }
+}
+
+.link-btn--download {
+  padding: 0 18px;
+
+  .for-all-states({ color: #ffffff; });
+
+  font-weight: bold;
+  text-transform: uppercase;
+
+  background-color: #ff6600;
+  border-color: #ff6600;
+
+  border-radius: @border-radius-big;
+
+  &:hover {
+    background-color: #ff8b00;
+    border-color: #ff8b00;
+  }
+}
+
+// --------------------------
+// progress ui inside button
+// --------------------------
+.btn__icon {
+  .playback-progress {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .playback-progress__bar {
+    display: block;
+    width: @size-big;
+    height: @size-big;
+    background-color: #000099;
+    border-radius: @border-radius-big;
+  }
+}

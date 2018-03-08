@@ -1,0 +1,11 @@
+<div class="cycle-ui">
+  <a v-if="active" v-on="click: cycleOff" href="#" class="btn">
+    <i class="btn__icon fa fa-repeat"></i>
+    <span class="btn__title">cycle on</span>
+  </a>
+
+  <a v-if="!active" v-on="click: cycleOn" href="#" class="btn">
+    <i class="btn__icon fa fa-repeat"></i>
+    <span class="btn__title">cycle off</span>
+  </a>
+</div>

@@ -1,0 +1,159 @@
+@import "_mixins";
+
+// --------------------------
+// labels
+// --------------------------
+.label {
+  font-size: 22px;
+  color: #cccccc;
+}
+
+.label--cart {
+  color: #ffffff;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.label--downloads {
+  color: #FF6699;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.label-group {
+  display: inline-block;
+
+  .label {
+    display: inline-block;
+  }
+}
+
+// --------------------------
+// playlist preloader
+// --------------------------
+.preloader {
+  display: inline-block;
+}
+
+.preloader__title {
+  display: inline-block;
+  color: #999999;
+  font-size: 14px;
+  font-weight: bold;
+
+  vertical-align: middle;
+}
+
+.preloader__icon {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+
+  margin-right: 10px;
+
+  vertical-align: middle;
+
+  background-image: url("../assets/icon-preloader.png");
+}
+
+// --------------------------
+// playlist loading error msg
+// --------------------------
+.error-msg {
+  display: inline-block;
+}
+
+.error-msg__title {
+  display: inline-block;
+  color: #999999;
+  font-size: 14px;
+  font-weight: bold;
+
+  vertical-align: middle;
+}
+
+.error-msg__icon {
+  color: #ff0000;
+  vertical-align: middle;
+}
+
+.error-msg__icon + .error-msg__title {
+  margin-left: 10px;
+}
+
+// --------------------------
+// cart ui
+// --------------------------
+.cart-ui {
+  position: absolute;
+  bottom: 11px;
+  right: 0;
+
+  text-align: right;
+
+  > div:nth-child(2) {
+    margin-top: 16px;
+    min-height: 39px;
+  }
+}
+
+// --------------------------
+// misc ui
+// --------------------------
+.misc-ui {
+  #clearfix();
+  display: block;
+  width: 100%;
+  position: relative;
+  top: -4px;
+
+  > .cycle-ui {
+    float: left;
+    // margin-left: 40px;
+  }
+
+  > .sound-ui {
+    // float: right;
+    // margin-right: 40px;
+    float: left;
+    margin-left: 20px;
+  }
+
+  > .video-ui {
+    float: left;
+    margin-left: 20px;
+  }
+}
+
+// --------------------------
+// free playlist ui
+// --------------------------
+.free-playlist-ui {
+  .link-btn--download {
+    position: absolute;
+    bottom: 11px;
+    right: 0;
+  }
+}
+
+// --------------------------
+// tracks download ui
+// --------------------------
+.tracks-download-ui {
+  .download-control-panel {
+    display: block;
+    min-width: 300px;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    
+    > li {
+      display: block;
+      float: right;
+      margin-left: 26px;
+    }
+  }
+}

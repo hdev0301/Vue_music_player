@@ -1,0 +1,20 @@
+<div class="cart-ui">
+  <div>
+    <!-- shopping cart label -->
+    <div class="label-group">
+      <span class="label">Shopping cart:</span>
+      <span class="label label--cart">{{tracks | tracks-count}}</span>
+    </div>
+    <!-- end of shopping cart label -->
+  </div>
+  <div>
+    <!-- checkout btn -->
+    <a v-if="tracks.length > 0" v-attr="href: tracks | checkout-url" class="link-btn link-btn--checkout">
+      <span class="btn__title">checkout</span>
+       <span class="btn__icon">
+         <i class="fa fa-play"></i>
+       </span>
+    </a>
+    <!-- end of checkout btn -->
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<ul class="tabs tabs--{{playlists.length}}">
+  <li v-repeat="playlist: playlists"
+      class="tab" v-class="tab--active: $index == selected, tab--active-free: playlist.free && $index == selected, tab--active-download: playlist.download && $index == selected"
+      v-on="click: changePlaylist($event, $index)">
+    <a href="#" class="tab__btn">{{playlist.title}}</a>
+  </li>
+</ul>

@@ -1,0 +1,54 @@
+<div class="big-player">
+  <tabs-list v-with="contextId: contextId"></tabs-list>
+
+  <!-- error screen -->
+  <div v-if="isError" class="player-body player-body--error">
+    <div class="error-msg">
+      <i class="fa fa-exclamation-triangle error-msg__icon"></i>
+      <span class="error-msg__title">can't load playlist</span>
+    </div>
+  </div>
+  <!-- end of error screen -->
+
+  <!-- loading screen -->
+  <div v-if="isLoading" class="player-body player-body--loading">
+    <div class="preloader">
+      <i class="preloader__icon"></i>
+      <span class="preloader__title">loading playlist</span>
+    </div>
+  </div>
+  <!-- loading screen -->
+
+  <!-- ready screen -->
+  <div v-if="isReady" v-class="'player-body--free-playlist': isFreePlaylist, 'player-body--tracks-download': isDownloadlist" class="player-body player-body--ready">
+    <div class="player-section">
+      <user-tracks v-with="contextId: contextId"></user-tracks>
+    </div>
+    <div class="player-section">
+      <track-link v-with="contextId: contextId"></track-link>
+      <author-link v-with="contextId: contextId"></author-link>
+      <progress-ui v-with="contextId: contextId"></progress-ui>
+      <div class="misc-ui">
+        <cycle-ui v-with="contextId: contextId"></cycle-ui>
+        <sound-ui v-with="contextId: contextId"></sound-ui>
+        <video-ui v-with="contextId: contextId"></video-ui>
+      </div>
+      <control-panel v-with="contextId: contextId"></control-panel>
+    </div>
+    <div id="videoSection" class="player-section video-overlay-section none">
+      <big-video-player v-with="contextId: contextId"></big-video-player>
+    </div>
+    <div class="player-section" v-if="!isFreePlaylist && !isDownloadlist">
+      <cart-tracks v-with="contextId: contextId"></cart-tracks>
+      <cart-ui v-if="!hasDownloads" v-with="contextId: contextId"></cart-ui>
+      <downloads-ui v-if="hasDownloads" v-with="contextId: contextId"></downloads-ui>
+    </div>
+    <div class="player-section" v-if="isFreePlaylist">
+      <free-playlist-ui v-with="contextId: contextId"></free-playlist-ui>
+    </div>
+    <div class="player-section" v-if="isDownloadlist">
+      <tracks-download-ui v-with="contextId: contextId"></tracks-download-ui>
+    </div>
+  </div>
+  <!-- end of ready screen -->
+</div>

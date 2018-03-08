@@ -1,0 +1,131 @@
+@import "_mixins";
+
+.big-video-player {
+	position: absolute;
+  #clearfix();
+
+  margin-right: 10px;
+  background-color: black;
+
+	progress:not(value) {
+	} 
+
+	progress[value]::-webkit-progress-bar {
+		background-color: #a2b6bb;
+
+		// &:hover {
+		// 	height: 8px;
+		// }
+	}
+}
+
+.video-unsupport {
+	width: 300px;
+	height: 140px;
+	align-items: center;
+	justify-content: center;
+	background-color: #16699b;
+
+	span {
+		font-size: 20px;
+		color: white;
+		text-align: center;
+	}
+}
+
+.video-player-controls {
+	height: 25px;
+	background-color: #16699b;
+
+	a {
+		margin-left: 10px;
+		line-height: 25px;
+		color: white;
+		text-decoration: none;
+	}
+
+	.volume-box {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+	}
+
+	.volume-bar {
+		-webkit-appearance: none;
+		width: 50px;
+		height: 4px;
+		background: white;
+		outline: none;
+		margin-left: 10px;
+	}
+
+	.video-time {
+		color: white;
+	}
+
+	.icon-btn-close {
+		position: absolute;
+		right: 20px;
+	}
+}
+
+.video-progress {
+	height: 20px;
+	width: 300px;
+	background-color: #d5c6bb;
+
+	// &:hover {
+	// 	height: 8px;
+	// }
+
+	.progres-bar {
+		background-color: red;
+	}
+}
+
+.video-progress::-webkit-progress-value {
+	background-color: #87dfdb;
+}
+
+#trim-component {
+  position: absolute;
+  bottom: 25px;
+  width: 300px;
+  height: 20px;
+  background: transparent;
+  z-index: 9999;
+
+  div {
+		position: absolute;
+		width: 10px;
+	  height: 20px;
+	  background: white;  	
+  }
+
+  #trim-left {
+  	left: 100px;
+  }
+
+  #trim-right {
+  	left: 200px;
+  }
+}
+
+.none {
+  display: none;
+}
+
+.display {
+	display: flex;
+	flex-direction: column;
+}
+
+.info {
+  background-color: aqua;
+}
+
+.error {
+  background-color: red;
+  color: white;
+}

@@ -1,0 +1,22 @@
+<div class="cart-ui">
+  <div>
+    <!-- label -->
+    <div class="label-group">
+      <span class="label">Downloads Left:</span>
+      <span class="label label--downloads">{{downloads}}</span>
+    </div>
+    <!-- end of label -->
+  </div>
+  <div>
+    <!-- btn -->
+    <a v-if="tracks.length > 0" v-attr="href: tracks | url" class="link-btn link-btn--add-to-my-music">
+      <span class="btn__title">
+        <small>add to</small><span>my music</span>
+      </span>
+       <span class="btn__icon">
+         <i class="fa fa-play"></i>
+       </span>
+    </a>
+    <!-- end of btn -->
+  </div>
+</div>

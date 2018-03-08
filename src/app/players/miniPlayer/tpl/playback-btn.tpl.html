@@ -1,0 +1,19 @@
+<span>
+  <a v-if="!playing" v-on="click: play" href="#" class="icon-btn icon-btn--big">
+    <span class="btn__icon">
+      <span class="playback-progress" v-style="width: (currentTime / duration) | percent">
+        <span class="playback-progress__bar"></span>
+      </span>
+      <i class="fa fa-play"></i>
+    </span>
+  </a>
+
+  <a v-if="playing" v-on="click: pause" href="#" class="icon-btn icon-btn--big">
+    <span class="btn__icon">
+      <span class="playback-progress" v-style="width: (currentTime / duration) | percent">
+        <span class="playback-progress__bar"></span>
+      </span>
+      <i class="fa fa-pause"></i>
+    </span>
+  </a>
+</span>

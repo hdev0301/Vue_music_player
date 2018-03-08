@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+
+  <script>
+    (function() {
+      var el = document.documentElement;
+      el.className = el.className + ' js';
+    })();
+  </script>
+
+  <!-- vendor:css -->
+  <!-- endinject -->
+
+  <!-- app:css -->
+  <!-- endinject -->
+
+  <!-- demo:css -->
+  <!-- endinject -->
+</head>
+<body>
+  <div>
+    <div>
+      <span>Favorite tracks count: </span><span data-favs-counter>1</span>
+    </div>
+    <div>
+      <span>Cart tracks count: </span><span data-cart-counter>1</span>
+    </div>
+  </div>
+  <div big-player downloads="10" class="demo-big-player">
+    <ul class="js-hidden">
+      <li playlist="/demo/playlists/playlist-01.xml" active="true" title="playlist #1">
+        <ul>
+          <li track="4998" duration="103" title="Spirit Of Success" favs="0" c-name="Matthias Harris"
+              c-url="matthias-harris">
+            <audio controls preload="none">
+              <source src="/demo/sounds/preview-corporate-theme.ogg"/>
+              <source src="/demo/sounds/preview-corporate-theme.mp3"/>
+            </audio>
+          </li>
+          <li track="3135" duration="116" title="Feeling Positive" favs="1" c-name="Matthias Harris"
+              c-url="matthias-harris">
+            <audio controls preload="none">
+              <source src="/demo/sounds/preview-epic-motivation.ogg"/>
+              <source src="/demo/sounds/preview-epic-motivation.mp3"/>
+            </audio>
+          </li>
+          <li track="4944" duration="114" title="Happiness" favs="0" c-name="Ryan Ancona" c-url="ryan-ancona">
+            <audio controls preload="none">
+              <source src="/demo/sounds/preview-successful-revolution.ogg"/>
+              <source src="/demo/sounds/preview-successful-revolution.mp3"/>
+            </audio>
+          </li>
+        </ul>
+      </li>
+
+      <li playlist="/demo/playlists/playlist-02.xml" title="playlist #2"></li>
+      <li playlist="/demo/playlists/playlist-03.xml" title="playlist #3"></li>
+      <li playlist="/demo/playlists/playlist-03.xml" title="free" free="true"></li>
+    </ul>
+  </div>
+
+  <!-- vendor:js -->
+  <!-- endinject -->
+
+  <!-- app:js -->
+  <!-- endinject -->
+
+  <!-- -demo:js -->
+  <!-- endinject -->
+
+  <script>
+    // ----------------------
+    // configure
+    // ----------------------
+    window.ml.config({
+      userId: '123'
+    });
+  </script>
+</body>
+</html>

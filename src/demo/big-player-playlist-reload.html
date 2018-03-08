@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+
+  <script>
+    (function() {
+      var el = document.documentElement;
+      el.className = el.className + ' js';
+    })();
+  </script>
+
+  <!-- vendor:css -->
+  <!-- endinject -->
+
+  <!-- app:css -->
+  <!-- endinject -->
+
+  <!-- demo:css -->
+  <!-- endinject -->
+</head>
+<body>
+  <div>
+    <div>
+      <span>Favorite tracks count: </span><span data-favs-counter>1</span>
+    </div>
+    <div>
+      <span>Cart tracks count: </span><span data-cart-counter>1</span>
+    </div>
+  </div>
+  <div id="your-player" big-player class="my-player demo-big-player">
+    <ul class="js-hidden">
+      <li playlist="/demo/playlists/playlist-01.xml" active="true" title="playlist #1">
+        <ul>
+          <li track="4998" duration="103" title="Spirit Of Success" favs="0" c-name="Matthias Harris"
+              c-url="matthias-harris">
+            <audio controls preload="none">
+              <source src="/demo/sounds/preview-corporate-theme.ogg"/>
+              <source src="/demo/sounds/preview-corporate-theme.mp3"/>
+            </audio>
+          </li>
+          <li track="3135" duration="116" title="Feeling Positive" favs="1" c-name="Matthias Harris"
+              c-url="matthias-harris">
+            <audio controls preload="none">
+              <source src="/demo/sounds/preview-epic-motivation.ogg"/>
+              <source src="/demo/sounds/preview-epic-motivation.mp3"/>
+            </audio>
+          </li>
+          <li track="4944" duration="114" title="Happiness" favs="0" c-name="Ryan Ancona" c-url="ryan-ancona">
+            <audio controls preload="none">
+              <source src="/demo/sounds/preview-successful-revolution.ogg"/>
+              <source src="/demo/sounds/preview-successful-revolution.mp3"/>
+            </audio>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <button type="button" id="btn">update playlist</button>
+  </div>
+
+  <!-- vendor:js -->
+  <!-- endinject -->
+
+  <!-- app:js -->
+  <!-- endinject -->
+
+  <!-- -demo:js -->
+  <!-- endinject -->
+
+  <script>
+    // ----------------------
+    // configure
+    // ----------------------
+    window.ml.config({
+      userId: '123'
+    });
+
+    // ----------------------
+    // update playlist example
+    // ----------------------
+    (function() {
+      var playlistUrl = '/demo/playlists/playlist-03.xml';
+
+      ml.onDomReady(setup);
+
+      function setup() {
+        var playerID = getPlayerId('#your-player');
+
+        var btn = document.querySelector('#btn');
+        btn.addEventListener('click', function(event) {
+          event.preventDefault();
+          updatePlaylist(playerID, playlistUrl);
+        }, false);
+      }
+
+      function updatePlaylist(playerID, playlistUrl) {
+        ml.loadPlaylist(playerID, playlistUrl);
+      }
+
+      function getPlayerId(selector) {
+        var player = document.querySelector(selector);
+        if (player === null) {
+          throw new Error('Incorrect selector for player');
+        }
+        return player.getAttribute('data-player-id');
+      }
+    })();
+  </script>
+</body>
+</html>

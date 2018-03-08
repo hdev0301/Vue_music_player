@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+
+  <script>
+    (function() {
+      var el = document.documentElement;
+      el.className = el.className + ' js';
+    })();
+  </script>
+
+  <!-- vendor:css -->
+  <!-- endinject -->
+
+  <!-- app:css -->
+  <!-- endinject -->
+
+  <!-- demo:css -->
+  <!-- endinject -->
+</head>
+<body>
+  <div>
+    <div>
+      <span>Favorite tracks count: </span><span data-favs-counter>1</span>
+    </div>
+    <div>
+      <span>Cart tracks count: </span><span data-cart-counter>1</span>
+    </div>
+  </div>
+  <div big-player class="demo-big-player">
+    <ul class="js-hidden">
+      <li playlist="cart"></li>
+    </ul>
+  </div>
+
+  <!-- vendor:js -->
+  <!-- endinject -->
+
+  <!-- app:js -->
+  <!-- endinject -->
+
+  <!-- -demo:js -->
+  <!-- endinject -->
+
+  <script>
+    // ----------------------
+    // configure
+    // ----------------------
+    window.ml.config({
+      userId: '123'
+    });
+  </script>
+</body>
+</html>

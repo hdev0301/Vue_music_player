@@ -1,0 +1,13 @@
+<span>
+  <a v-if="!added" v-on="click: add" href="#" class="icon-btn icon-btn--big icon-btn--add">
+    <span class="btn__icon">
+      <i class="fa fa-plus"></i>
+    </span>
+  </a>
+
+  <a v-if="added" v-on="click: remove" href="#" class="icon-btn icon-btn--big icon-btn--del">
+    <span class="btn__icon">
+      <i class="fa fa-times"></i>
+    </span>
+  </a>
+</span>

@@ -1,0 +1,137 @@
+@import "_mixins";
+
+@tabs-count: 6;
+@tabs-horizontal-padding: 15px;
+@tab-font-size: 14px;
+
+@tab-height: 30px;
+@tab-border-radius: 5px;
+@tab-bg-color: #cccccc;
+@tab-font-color: #333333;
+@tab-hover-bg: #104869;
+@tab-active-free-bg: #333366;
+@tab-active-download-bg: #333366;
+@tab-hover-font-color: #ffffff;
+
+// --------------------------
+// mixins
+// --------------------------
+.active-tab-btn() {
+  color: @tab-hover-font-color;
+  background-color: @tab-hover-bg;
+}
+
+// --------------------------
+//
+// --------------------------
+.tabs,
+.tabs * {
+  box-sizing: border-box;
+}
+
+.tabs {
+  #clearfix();
+
+  display: block;
+  position: relative;
+
+  width: 100%;
+
+  list-style: none;
+  margin-bottom: 0;
+  margin-top: 0;
+
+  padding-left: @tabs-horizontal-padding;
+  padding-right: @tabs-horizontal-padding;
+
+  font-size: @tab-font-size;
+}
+
+.tab {
+  display: block;
+  float: left;
+
+  width: 100% / @tabs-count;
+  min-height: 1px;
+}
+
+#width-of-tabs(@i) when (@i > 1) {
+  .tabs--@{i} {
+    .tab {
+      width: 100% / @i;
+    }
+  }
+
+  #width-of-tabs(@i - 1);
+}
+
+#width-of-tabs(10);
+
+.tabs--1 {
+  display: none;
+}
+
+.tab__btn {
+  display: block;
+
+  height: @tab-height;
+
+  margin-left: 1px;
+
+  border-top-left-radius: @tab-border-radius;
+  border-top-right-radius: @tab-border-radius;
+
+  background-color: @tab-bg-color;
+
+  text-transform: uppercase;
+  line-height: @tab-height;
+  padding-left: @tabs-horizontal-padding;
+  padding-right: @tabs-horizontal-padding;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+  }
+
+  &,
+  &:focus,
+  &:active {
+    color: @tab-font-color;
+  }
+
+  &:hover {
+    .active-tab-btn();
+  }
+}
+
+.tab--active {
+  .tab__btn {
+    .active-tab-btn();
+
+    cursor: default;
+  }
+}
+
+.tab--active-free {
+  .tab__btn {
+    &,
+    &:hover {
+      background-color: @tab-active-free-bg;
+    }
+  }
+}
+
+.tab--active-download {
+  .tab__btn {
+    &,
+    &:hover {
+      background-color: @tab-active-download-bg;
+    }
+  }
+}

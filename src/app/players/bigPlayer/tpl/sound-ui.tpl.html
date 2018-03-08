@@ -1,0 +1,36 @@
+<div class="sound-ui">
+  <div class="sound-ui__inner">
+    <div class="sound-ui__mute-btn">
+      <a v-if="!muted" v-on="click: mute" href="#" class="icon-btn">
+      <span class="btn__icon">
+        <i class="fa fa-volume-up"></i>
+      </span>
+      </a>
+
+      <a v-if="muted" v-on="click: unmute" href="#" class="icon-btn">
+      <span class="btn__icon">
+        <i class="fa fa-volume-off"></i>
+      </span>
+      </a>
+    </div>
+
+    <div class="sound-ui__volume" data-drag-area>
+      <ul class="sound-ui__dots">
+        <li class="sound-ui__dot"></li>
+        <li class="sound-ui__dot"></li>
+        <li class="sound-ui__dot"></li>
+        <li class="sound-ui__dot"></li>
+        <li class="sound-ui__dot"></li>
+      </ul>
+      <div class="sound-ui__dots-mask" v-style="width: muted ? 0 : (100 * volume) + '%'">
+        <ul class="sound-ui__dots sound-ui__dots--active">
+          <li class="sound-ui__dot"></li>
+          <li class="sound-ui__dot"></li>
+          <li class="sound-ui__dot"></li>
+          <li class="sound-ui__dot"></li>
+          <li class="sound-ui__dot"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

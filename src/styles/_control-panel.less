@@ -1,0 +1,27 @@
+@import "_mixins";
+
+.control-panel {
+  #clearfix();
+
+  display: block;
+
+  min-width: 42px * 6 + 26px * 5;
+
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+
+  > li {
+    display: block;
+    float: left;
+    margin-right: 26px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

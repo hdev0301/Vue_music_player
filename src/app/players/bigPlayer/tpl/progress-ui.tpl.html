@@ -1,0 +1,25 @@
+<div class="progress-ui">
+  <div class="progress-ui__labels">
+    <span class="progress-ui__label{{(originIndex===0)?'-active':''}}">{{currentTime | time}}</span>
+    <!-- <span class="progress-ui__label">{{duration | time}}</span> -->
+    <span class="progress-ui__label{{(originIndex===0)?'-active':''}}">{{currentDuration | time}}</span>
+  </div>
+  <div v-if="hasTrack" class="progress-ui__available-durations">
+<!--     <div v-repeat="time: availableDurations" class="progress-ui__available-duration" v-on="click: onMainTrackChanged($index)"> -->
+    <div v-repeat="time: currentAvailableDurations" class="progress-ui__available-duration{{(originIndex===($index+1))?'-active':''}}" v-on="click: onMainTrackChanged($index)">
+      <i v-if="originIndex!==($index+1)" class="btn__icon fa fa-play"></i>
+      <span>{{ time | time }}</span>
+    </div>
+  </div>
+  <div class="progress-bar">
+    <div v-if="hasTrack" class="progress-bar__img">
+      <img v-attr="src: track | wave-form-url" alt="">
+    </div>
+    <div class="progress-bar__bar progress-bar__bar--bg"></div>
+    <div v-style="width: (bytesLoaded / bytesTotal) | percent"
+         class="progress-bar__bar progress-bar__bar--loading"></div>
+    <div v-style="width: (currentTime / currentDuration) | percent"
+         class="progress-bar__bar progress-bar__bar--playing"></div>
+    <div class="progress-bar__drag-area" data-drag-area></div>
+  </div>
+</div>

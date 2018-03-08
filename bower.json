@@ -1,0 +1,19 @@
+{
+  "name": "lu-js-player",
+  "version": "0.0.0",
+  "authors": [
+  ],
+  "license": "proprietary",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "fontawesome": "~4.3.0",
+    "iscroll": "~5.1.3"
+  }
+}

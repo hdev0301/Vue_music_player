@@ -1,0 +1,75 @@
+<div id="player" class="big-video-player none">
+  <div id="message"></div>
+  <video
+    id="video-player"
+    width="300"
+    height="140"
+    class="none"
+    loop="true"
+    autoplay="true"
+    v-on="click: onTriggerPlay">
+  </video>
+  <div id="video-unsupport" class="video-unsupport none">
+    <span>Supported video formats:</span>
+    <span>MP4, WebM, Ogg</span>
+  </div>
+  <progress
+    id="video-progress"
+    value="0"
+    max="100"
+    class="video-progress">
+  </progress>
+  <div id="trim-component">
+    <div id="trim-left">
+    </div>
+    <div id="trim-right">
+    </div>
+  </div>
+  <div class="video-player-controls">
+    <a v-if="isPlaying" href="#" v-on="click: onPause">
+      <span class="btn__icon">
+        <i class="fa fa-pause"></i>
+      </span>
+    </a>
+    <a v-if="!isPlaying" href="#" v-on="click: onPlay">
+      <span class="btn__icon">
+        <i class="fa fa-play"></i>
+      </span>
+    </a>
+    <div
+      id="volume-box"
+      class="volume-box">
+      <a href="#" v-on="click: onTriggerVolume">
+        <span class="btn__icon">
+          <i v-if="!isMute" class="fa fa-volume-up"></i>
+          <i v-if="isMute" class="fa fa-volume-off"></i>
+        </span>
+      </a>
+      <input
+        type="range"
+        id="volume-bar"
+        title="volume"
+        min="0"
+        max="1"
+        step="0.1"
+        value="0.5"
+        class="volume-bar none"
+      >
+    </div>
+    <span
+      id="video-time"
+      class="video-time"
+    >
+    </span>
+    <a href="#" v-on="click: onPause">
+      <span class="btn__icon">
+        <i class="fa fa-repeat"></i>
+      </span>
+    </a>
+    <a href="#" class="icon-btn-close" v-on="click: onClose">
+      <span class="btn__icon">
+        <i class="fa fa-close"></i>
+      </span>
+    </a>
+  </div>
+</div>
